@@ -1,0 +1,556 @@
+/* =====================================
+   LENTERA LIBRARY - TUGAS 2
+   =====================================
+
+   WARNA:
+   #1B191A = hitam
+   #E9E4E0 = beige
+   #943A1F = merah bata
+
+===================================== */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #E9E4E0;
+
+    color: #1B191A;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    line-height: 1.6;
+}
+
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+
+    background-color: #E9E4E0;
+
+    border-top: 4px solid #943A1F;
+
+    border-bottom: 1px solid #1B191A;
+
+    width: 100%;
+}
+
+
+.nav-container {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+
+.nav-container a {
+
+    color: #1B191A;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    padding: 18px 28px;
+
+    transition: color 0.2s ease;
+}
+
+
+.nav-container a:hover {
+
+    color: #943A1F;
+
+}
+
+
+
+/* =====================================
+   CONTAINER FORM
+===================================== */
+
+.form-container {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 60px 30px 80px;
+}
+
+
+
+/* =====================================
+   JUDUL
+===================================== */
+
+.form-container h1 {
+
+    text-align: center;
+
+    color: #943A1F;
+
+    font-size: clamp(38px, 5vw, 55px);
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #1B191A;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+
+
+/* =====================================
+   GARIS DEKORASI
+===================================== */
+
+.decorative-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 15px auto 50px;
+}
+
+
+.decorative-line span {
+
+    width: 55px;
+
+    height: 1px;
+
+    background-color: #943A1F;
+}
+
+
+.decorative-line b {
+
+    color: #943A1F;
+
+    font-size: 14px;
+}
+
+
+
+/* =====================================
+   FIELDSET
+===================================== */
+
+fieldset {
+
+    width: 100%;
+
+    border: 1px solid #943A1F;
+
+    border-radius: 18px;
+
+    padding: 45px 40px 30px;
+
+    margin-bottom: 40px;
+
+    background-color: #E9E4E0;
+}
+
+
+legend {
+
+    padding: 0 16px;
+
+    color: #943A1F;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    background-color: #E9E4E0;
+}
+
+
+
+/* =====================================
+   FORM ROW
+===================================== */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 220px 1fr;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+}
+
+
+.form-row > label {
+
+    color: #1B191A;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+
+/* =====================================
+   INPUT
+===================================== */
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+
+    width: 100%;
+
+    background-color: #1B191A;
+
+    color: #E9E4E0;
+
+    border: 1px solid #1B191A;
+
+    border-radius: 9px;
+
+    padding: 15px 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+input[type="text"],
+input[type="password"],
+select {
+
+    height: 58px;
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+
+    border-color: #943A1F;
+
+    box-shadow: 0 0 0 2px rgba(148, 58, 31, 0.15);
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color: #A9A4A1;
+}
+
+
+
+/* =====================================
+   TEXTAREA
+===================================== */
+
+textarea {
+
+    height: 100px;
+
+    resize: vertical;
+}
+
+
+
+/* =====================================
+   RADIO
+===================================== */
+
+.radio-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+.radio-group label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #1B191A;
+
+    font-size: 17px;
+
+    font-weight: normal;
+}
+
+
+.radio-group input {
+
+    width: 20px;
+
+    height: 20px;
+
+    accent-color: #943A1F;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================
+   CHECKBOX
+===================================== */
+
+.checkbox-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.checkbox-group label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #1B191A;
+
+    font-size: 17px;
+
+    font-weight: normal;
+
+    white-space: nowrap;
+}
+
+
+.checkbox-group input {
+
+    width: 19px;
+
+    height: 19px;
+
+    accent-color: #943A1F;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================
+   TOMBOL
+===================================== */
+
+.tombol-form {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+.tombol-form button {
+
+    min-width: 190px;
+
+    padding: 13px 35px;
+
+    background-color: #943A1F;
+
+    color: #E9E4E0;
+
+    border: 1px solid #943A1F;
+
+    border-radius: 8px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.tombol-form button:hover {
+
+    background-color: #1B191A;
+
+    border-color: #1B191A;
+}
+
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 800px) {
+
+    .nav-container a {
+
+        padding: 14px 12px;
+
+        font-size: 12px;
+    }
+
+
+    .form-container {
+
+        padding: 50px 20px;
+    }
+
+
+    fieldset {
+
+        padding: 40px 25px 30px;
+    }
+
+
+    legend {
+
+        font-size: 26px;
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .checkbox-group {
+
+        gap: 15px;
+    }
+
+
+    .tombol-form {
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .nav-container a {
+
+        padding: 12px 8px;
+
+        font-size: 11px;
+    }
+
+
+    .form-container h1 {
+
+        font-size: 36px;
+    }
+
+
+    .subtitle {
+
+        font-size: 16px;
+    }
+
+
+    fieldset {
+
+        border-radius: 14px;
+
+        padding: 35px 18px 25px;
+    }
+
+
+    legend {
+
+        font-size: 22px;
+    }
+
+
+    .form-row > label {
+
+        font-size: 17px;
+    }
+
+
+    .tombol-form button {
+
+        width: 100%;
+    }
+
+}

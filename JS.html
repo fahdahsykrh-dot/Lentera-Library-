@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lentera Library - JavaScript</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E9E4E0;
+            color: #1B191A;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background-color: #1B191A;
+            border-top: 4px solid #943A1F;
+            padding: 18px 0;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-container a {
+            color: #E9E4E0;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-container a:hover {
+            color: #943A1F;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            color: #1B191A;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #55504d;
+        }
+
+        .garis {
+            width: 70px;
+            height: 4px;
+            background-color: #943A1F;
+            margin: 22px auto;
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           JAVASCRIPT BOX
+        ========================= */
+
+        .js-container {
+            width: 90%;
+            max-width: 750px;
+            margin: 20px auto 80px;
+
+            background-color: #1B191A;
+            padding: 45px;
+
+            border-radius: 20px;
+            border: 2px solid #943A1F;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .js-title {
+            text-align: center;
+            color: #E9E4E0;
+            margin-bottom: 35px;
+        }
+
+        .js-title h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .js-title p {
+            font-size: 14px;
+            color: #c9c2bd;
+        }
+
+
+        /* =========================
+           INPUT
+        ========================= */
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #E9E4E0;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+
+            border: 1px solid #E9E4E0;
+            border-radius: 8px;
+
+            background-color: #E9E4E0;
+            color: #1B191A;
+
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border: 2px solid #943A1F;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .operation-title {
+            text-align: center;
+            color: #c9c2bd;
+            margin: 30px 0 15px;
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .buttons button {
+            width: 58px;
+            height: 48px;
+
+            border: none;
+            border-radius: 9px;
+
+            background-color: #943A1F;
+            color: #E9E4E0;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .buttons button:hover {
+            background-color: #E9E4E0;
+            color: #1B191A;
+        }
+
+
+        /* =========================
+           OUTPUT
+        ========================= */
+
+        .output-box {
+            margin-top: 35px;
+            padding: 25px;
+
+            background-color: #E9E4E0;
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .output-box span {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+            color: #943A1F;
+
+            margin-bottom: 10px;
+        }
+
+        #hasil {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1B191A;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+
+            background-color: #1B191A;
+            color: #E9E4E0;
+
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="header">
+
+        <h1>Lentera Library</h1>
+
+        <p>
+            Ruang Kecil Untuk Ide-Ide Besar
+        </p>
+
+        <div class="garis"></div>
+
+    </header>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <main>
+
+        <section class="js-container">
+
+            <div class="js-title">
+
+                <h2>JavaScript</h2>
+
+                <p>
+                    Kalkulator Aritmatika Sederhana
+                </p>
+
+            </div>
+
+
+            <!-- INPUT BILANGAN 1 -->
+
+            <div class="input-group">
+
+                <label for="bilangan1">
+                    Input Bilangan 1
+                </label>
+
+                <input
+                    type="number"
+                    id="bilangan1"
+                    placeholder="Masukkan bilangan pertama"
+                >
+
+            </div>
+
+
+            <!-- INPUT BILANGAN 2 -->
+
+            <div class="input-group">
+
+                <label for="bilangan2">
+                    Input Bilangan 2
+                </label>
+
+                <input
+                    type="number"
+                    id="bilangan2"
+                    placeholder="Masukkan bilangan kedua"
+                >
+
+            </div>
+
+
+            <!-- OPERASI -->
+
+            <p class="operation-title">
+                Pilih Operasi Aritmatika
+            </p>
+
+            <div class="buttons">
+
+                <button onclick="hitung('+')">
+                    +
+                </button>
+
+                <button onclick="hitung('-')">
+                    −
+                </button>
+
+                <button onclick="hitung('*')">
+                    ×
+                </button>
+
+                <button onclick="hitung('/')">
+                    ÷
+                </button>
+
+            </div>
+
+
+            <!-- OUTPUT -->
+
+            <div class="output-box">
+
+                <span>Output</span>
+
+                <p id="hasil">
+                    0
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function hitung(operator) {
+
+            let input1 =
+                document.getElementById("bilangan1").value;
+
+            let input2 =
+                document.getElementById("bilangan2").value;
+
+
+            // Mengecek apakah kedua input sudah diisi
+
+            if (input1 === "" || input2 === "") {
+
+                document.getElementById("hasil").textContent =
+                    "Isi kedua bilangan terlebih dahulu";
+
+                return;
+            }
+
+
+            let bilangan1 = Number(input1);
+            let bilangan2 = Number(input2);
+
+            let hasil;
+
+
+            // Operasi penjumlahan
+
+            if (operator === "+") {
+
+                hasil = bilangan1 + bilangan2;
+
+            }
+
+
+            // Operasi pengurangan
+
+            else if (operator === "-") {
+
+                hasil = bilangan1 - bilangan2;
+
+            }
+
+
+            // Operasi perkalian
+
+            else if (operator === "*") {
+
+                hasil = bilangan1 * bilangan2;
+
+            }
+
+
+            // Operasi pembagian
+
+            else if (operator === "/") {
+
+                if (bilangan2 === 0) {
+
+                    document.getElementById("hasil").textContent =
+                        "Tidak dapat dibagi 0";
+
+                    return;
+                }
+
+                hasil = bilangan1 / bilangan2;
+
+            }
+
+
+            // Menampilkan hasil
+
+            document.getElementById("hasil").textContent =
+                hasil;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

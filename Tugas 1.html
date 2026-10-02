@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lentera Library</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #E9E4E0;
+            color: #1B191A;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .header {
+            background-color: #1B191A;
+            color: #E9E4E0;
+            text-align: center;
+            padding: 55px 25px 48px;
+            border-bottom: 6px solid #943A1F;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #943A1F;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1;
+            margin-bottom: 18px;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 21px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            background-color: #E9E4E0;
+            border-bottom: 1px solid #1B191A;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-container a {
+            color: #1B191A;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 18px 22px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-container a:hover {
+            color: #943A1F;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================== */
+
+        .layout {
+            max-width: 1450px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 245px 1fr;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================== */
+
+        .sidebar {
+            background-color: #1B191A;
+            color: #E9E4E0;
+            padding: 45px 28px;
+            position: sticky;
+            top: 57px;
+            height: calc(100vh - 57px);
+            align-self: start;
+        }
+
+        .sidebar-title {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #943A1F;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #943A1F;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 8px;
+            color: #E9E4E0;
+            text-decoration: none;
+            font-size: 17px;
+            border-left: 2px solid transparent;
+            transition: 0.2s ease;
+        }
+
+        .sidebar li a:hover {
+            color: #943A1F;
+            border-left-color: #943A1F;
+            padding-left: 15px;
+        }
+
+        .number {
+            color: #943A1F;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .sidebar-line {
+            height: 1px;
+            background-color: #943A1F;
+            margin: 35px 0 25px;
+        }
+
+        .sidebar-note {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CONTENT
+        ========================== */
+
+        .content {
+            min-width: 0;
+        }
+
+        section {
+            padding: 85px clamp(30px, 6vw, 95px);
+            border-bottom: 1px solid #1B191A;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #943A1F;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .section-label span {
+            color: #1B191A;
+        }
+
+        /* =========================
+           BERANDA
+        ========================== */
+
+        .hero-section {
+            min-height: 760px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-text {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            margin-bottom: 18px;
+        }
+
+        .decorative-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px auto 25px;
+        }
+
+        .decorative-line span {
+            width: 65px;
+            height: 1px;
+            background-color: #943A1F;
+        }
+
+        .decorative-line b {
+            color: #943A1F;
+            font-size: 14px;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        /* =========================
+           GAMBAR
+        ========================== */
+
+        .image-frame {
+            width: 100%;
+            max-width: 950px;
+            margin: 55px auto 0;
+            padding: 0;
+            border: 1px solid #1B191A;
+            position: relative;
+            line-height: 0;
+        }
+
+        .image-frame::before {
+            content: "";
+            position: absolute;
+            top: -13px;
+            left: 0;
+            width: 170px;
+            height: 4px;
+            background-color: #943A1F;
+        }
+
+        .image-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* =========================
+           JUDUL SECTION
+        ========================== */
+
+        section h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .title-line {
+            width: 80px;
+            height: 4px;
+            background-color: #943A1F;
+            margin-bottom: 38px;
+        }
+
+        /* =========================
+           TABEL KOLEKSI
+        ========================== */
+
+        .collection-section {
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid #1B191A;
+        }
+
+        table {
+            width: 100%;
+            min-width: 850px;
+            border-collapse: collapse;
+            background-color: #E9E4E0;
+        }
+
+        thead {
+            background-color: #1B191A;
+            color: #E9E4E0;
+        }
+
+        th {
+            padding: 18px 14px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-right: 1px solid #E9E4E0;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #1B191A;
+            border-right: 1px solid #1B191A;
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        tbody tr {
+            transition: none;
+        }
+
+        tbody tr:hover {
+            background-color: #E9E4E0;
+            color: #1B191A;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        td:first-child {
+            width: 60px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        td:nth-child(2) {
+            text-align: left;
+            min-width: 350px;
+        }
+
+        td:nth-child(3) {
+            min-width: 180px;
+        }
+
+        /* =========================
+           TENTANG
+        ========================== */
+
+        .about-section p {
+            max-width: 1000px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        /* =========================
+           KONTAK
+        ========================== */
+
+        .contact-section > p {
+            max-width: 1000px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 700px;
+        }
+
+        .contact-info p {
+            border-left: 4px solid #943A1F;
+            padding: 15px 20px;
+            background-color: #1B191A;
+            color: #E9E4E0;
+        }
+
+        .contact-info strong {
+            color: #943A1F;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .closing {
+            max-width: 900px;
+            margin-top: 55px;
+            padding-top: 30px;
+            border-top: 1px solid #1B191A;
+        }
+
+        .closing p {
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+            background-color: #1B191A;
+            color: #E9E4E0;
+            text-align: center;
+            padding: 28px 20px;
+            border-top: 5px solid #943A1F;
+        }
+
+        .footer p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                padding: 25px 30px;
+            }
+
+            .sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .sidebar li {
+                margin: 0;
+            }
+
+            .sidebar-line,
+            .sidebar-note {
+                display: none;
+            }
+
+            .image-frame img {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 42px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .nav-container a {
+                padding: 14px 10px;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 55px 20px;
+            }
+
+            .hero-section {
+                min-height: auto;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .image-frame {
+                margin-top: 35px;
+            }
+
+            .image-frame::before {
+                width: 100px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section p,
+            .contact-section > p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <p class="small-title">
+            PERPUSTAKAAN PRIBADI
+        </p>
+
+        <h1>
+            Lentera Library
+        </h1>
+
+        <p class="tagline">
+            Ruang Kecil Untuk Ide-Ide Besar
+        </p>
+
+    </header>
+
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#beranda">
+                Beranda
+            </a>
+
+            <a href="#koleksi">
+                Koleksi
+            </a>
+
+            <a href="#tentang">
+                Tentang
+            </a>
+
+            <a href="#kontak">
+                Kontak
+            </a>
+
+            <!-- INI YANG MENGHUBUNGKAN TUGAS 1 KE TUGAS 2 -->
+            <a href="./Tugas%202.html">
+                  Formulir Pendaftaran
+            </a>
+
+             <a href="./JS.html">
+            JavaScript
+        </a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                MENGETAHUI
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#beranda">
+                        <span class="number">01</span>
+                        Beranda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tentang">
+                        <span class="number">02</span>
+                        Tentang
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#koleksi">
+                        <span class="number">03</span>
+                        Daftar Bacaan
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-line"></div>
+
+            <p class="sidebar-note">
+                Koleksi kecil untuk membaca,
+                menemukan informasi, dan
+                menikmati berbagai cerita.
+            </p>
+
+        </aside>
+
+
+        <main class="content">
+
+            <section id="beranda" class="hero-section">
+
+                <div class="section-label">
+                    <span>01</span>
+                    BERANDA
+                </div>
+
+                <div class="hero-text">
+
+                    <h2>
+                        Lentera Library
+                    </h2>
+
+                    <div class="decorative-line">
+                        <span></span>
+                        <b>◆</b>
+                        <span></span>
+                    </div>
+
+                    <p class="hero-description">
+                        Lentera Library yang merupakan katalog kecil untuk menyimpan dan menikmati berbagai koleksi bacaan.
+                    </p>
+
+                </div>
+
+
+                <div class="image-frame">
+
+                    <img
+                        src="ikon.png"
+                        alt="Lentera Library"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="koleksi"
+                class="collection-section"
+            >
+
+                <div class="section-label">
+                    <span>02</span>
+                    KOLEKSI
+                </div>
+
+                <h2>
+                    Koleksi
+                </h2>
+
+                <div class="title-line"></div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>No.</th>
+                                <th>Judul Buku</th>
+                                <th>Penulis</th>
+                                <th>Jenis</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Pengantar Ilmu Perpustakaan</td>
+                                <td>Sulistyo-Basuki</td>
+                                <td>Buku</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Manajemen Perpustakaan</td>
+                                <td>Sutarno NS</td>
+                                <td>Buku</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Dasar &amp; Teknik Pengarsipan</td>
+                                <td>Nur'aini, dkk.</td>
+                                <td>Buku</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>Buku Panduan Sosiologi</td>
+                                <td>Seli Septian Pratiwi, dkk.</td>
+                                <td>E-Book</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>Mengenal Arsitektur Tradisional Indonesia</td>
+                                <td>Arifin Suryo Nugroho</td>
+                                <td>E-Book</td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td>Pustakawan Sebagai Profesi yang Berkembang: Pemaknaan Kembali Pustakawan Terhadap Implementasi Teknologi Informasi di Perpustakaan</td>
+                                <td>Roro Isyawati Permata Ganggi</td>
+                                <td>E-Journal</td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>Manajemen Informasi Administrasi dan Kearsipan Menggunakan Aplikasi SRIKANDI dalam Pelayanan Publik di Setjen DPR RI</td>
+                                <td>Elisabeth Sonia Asa, dkk.</td>
+                                <td>E-Journal</td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td>Laut Bercerita</td>
+                                <td>Leila S. Chudori</td>
+                                <td>Novel</td>
+                            </tr>
+
+                            <tr>
+                                <td>9</td>
+                                <td>Serangkai</td>
+                                <td>Valerie Patkar</td>
+                                <td>Novel</td>
+                            </tr>
+
+                            <tr>
+                                <td>10</td>
+                                <td>Hujan</td>
+                                <td>Tere Liye</td>
+                                <td>Novel</td>
+                            </tr>
+
+                            <tr>
+                                <td>11</td>
+                                <td>Tentang Kamu</td>
+                                <td>Tere Liye</td>
+                                <td>Novel</td>
+                            </tr>
+
+                            <tr>
+                                <td>12</td>
+                                <td>Rindu</td>
+                                <td>Tere Liye</td>
+                                <td>Novel</td>
+                            </tr>
+
+                            <tr>
+                                <td>13</td>
+                                <td>As Long As The Lemon Trees Grow</td>
+                                <td>Zoulfa Katouh</td>
+                                <td>Novel</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="tentang"
+                class="about-section"
+            >
+
+                <div class="section-label">
+                    <span>03</span>
+                    TENTANG
+                </div>
+
+                <h2>
+                    Mengenal Dunia Perpustakaan
+                </h2>
+
+                <div class="title-line"></div>
+
+                <p>
+                    Perpustakaan bagi saya bukan sekadar ruangan berisi rak dan buku, melainkan ruang untuk menemukan informasi, cerita, serta pengetahuan baru. Koleksi pribadi di Lentera Library mencakup novel, buku pendidikan, hingga literatur ilmu perpustakaan dan pengarsipan yang mendukung kegiatan kuliah saya sebagai mahasiswa Perpustakaan dan Sains Informasi. Melalui Lentera Library, saya mendokumentasikan setiap bacaan karena percaya bahwa setiap buku selalu memberikan manfaat, pengalaman, dan sudut pandang baru.
+                </p>
+
+            </section>
+
+
+            <section
+                id="kontak"
+                class="contact-section"
+            >
+
+                <div class="section-label">
+                    <span>04</span>
+                    KONTAK
+                </div>
+
+                <h2>
+                    Kontak
+                </h2>
+
+                <div class="title-line"></div>
+
+                <p>
+                    Jika ingin membaca, meminjam, ataumengetahui lebih lanjut tentang koleksi bacaan di Lentera Library, berbagai rekomendasi buku, atau berdiskusi mengenai Perpustakaan dan dunia Informasi, dapat menghubungi saya melalui kontak yang tersedia.
+                </p>
+
+
+                <div class="contact-info">
+
+                    <p>
+                        <strong>Email</strong>
+                        <br>
+                        fahdahsykrh@gmail.com
+                    </p>
+
+                    <p>
+                        <strong>No.WA</strong>
+                        <br>
+                        081263762997
+                    </p>
+
+                </div>
+
+
+                <div class="closing">
+
+                    <p>
+                        Terima Kasih sudah berkunjung ke Lentera Library. Semoga koleksi Kecil ini dapat menjadi tempat untuk menemukan bacaan, pengetahuan, dan inspirasi baru.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Lentera Library | Fahdah Syakirah
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
